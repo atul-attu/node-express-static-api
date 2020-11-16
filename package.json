@@ -1,0 +1,14 @@
+{
+  "name": "expressapi",
+  "version": "1.0.0",
+  "description": "creating a express API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Atul Dalvi",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
