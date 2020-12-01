@@ -43,8 +43,8 @@ mongoose.connect('mongodb://localhost:27017/mongodemo', { useNewUrlParser: true,
     // logical operators
     // and, or
 
-    async function fetchCourses(){
-        let course = await Course
+    //async function fetchCourses(){
+        //let course = await Course
                                 //.find({author:'Nitin Navik',price:50000}) // select * from courses
                                 //.find()
                                 //.sort("author")// ascending to descending
@@ -71,12 +71,46 @@ mongoose.connect('mongodb://localhost:27017/mongodemo', { useNewUrlParser: true,
                                 // .find({
                                 //     author:/Dalvi$/ // finding from last
                                 // })
-                                .find({
-                                    author:/.*Navik.*/
-                                })
-                                .select("author price -_id")//fetch selective data exclude id
+                                //.find({
+                                 //   author:/.*Navik.*/
+                                //})
+                                //.select("author price -_id")//fetch selective data exclude id
 
-        console.log(course);
+        //console.log(course);
+    //}
+
+    //fetchCourses();
+
+
+    // UPDATE DATA
+
+    async function updateCourse(id){
+        // take the id
+        let course = await Course.findById(id);
+        if(!course){
+            return;
+        }
+        // update the data
+        course.author = "bipin navik";
+        course.price = 60000;
+
+        // save the updated data
+        let updatecourse = await course.save();
+        console.log(updatecourse);
     }
 
-    fetchCourses();
+    //updateCourse('5fc5ff0beb41000f4c526741');
+
+
+
+    // REMOVE DATA
+
+    async function removeCourse(id){
+        let courseremove = await Course.findByIdAndRemove({_id:id});
+        if(!courseremove){
+            return
+        };
+        console.log(courseremove);
+    }
+
+    removeCourse('5fc5ff0beb41000f4c526741');
