@@ -9,6 +9,10 @@
   "author": "Atul Dalvi",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1"
+    "config": "^3.3.2",
+    "express": "^4.17.1",
+    "helmet": "^4.2.0",
+    "mongoose": "^5.11.0",
+    "morgan": "^1.10.0"
   }
 }
